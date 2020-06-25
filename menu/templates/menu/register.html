@@ -1,0 +1,34 @@
+{% extends "menu/base.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div>
+        <form action="{% url 'register' %}" method='post'>
+            {% csrf_token %}
+            <div class="form-group">
+                <p> Firstname:
+                    <input class="form-control" name="first_name" placeholder="Enter first name">
+                </p>
+
+                <p> Lastname:
+                    <input class="form-control" name="last_name" placeholder="Enter last name">
+                </p>
+
+                <p> Select a Username:
+                    <input class="form-control" name="username" placeholder="Enter user name">
+                </p>
+
+                <p> Select a Password:
+                <input class="form-control" name="password" type="password" placeholder="Enter password">
+                </p>
+
+                <p> Enter an email:
+                    <input class="form-control" name="email" placeholder="Enter Email">
+                </p>
+
+                <button class="btn btn-primary">Register</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

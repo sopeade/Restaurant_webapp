@@ -1,0 +1,39 @@
+{% extends "menu/base.html" %}
+
+{% block title %}Confirm{% endblock %}
+
+{% block body %}
+<ul id="logout_header">
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+</ul>
+
+<div>
+    <h2>Shopping Cart</h2>
+</div>
+<p> Confirm Order</p>
+        <div>
+            Pizza Order: {{ pizza_order }}<br>
+            Toppings: {{ toppings|slugify }}<br>
+            Pasta Order: {{ pasta_order }}<br>
+            Salad Order: {{ salad_order }}<br>
+            Dinner Platter Order: {{ dinner_platter_order }}<br>
+            Sub Order: {{ sub_order }}<br>
+            Extra: {{ extra.extra }}<br>
+            Sub additions: {{ selections|slugify }}<br>
+            Total Sum: {{ total }}
+        </div>
+<form action="{% url 'checkout' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="total" value={{total}}>
+    <input type="hidden" name="pizza_order" value={{pizza_order|slugify}}>
+    <input type="hidden" name="pasta_order" value={{pasta_order|slugify}}>
+    <input type="hidden" name="salad_order" value={{salad_order|slugify}}>
+    <input type="hidden" name="dinner_platter_order" value={{dinner_platter_order|slugify}}>
+    <input type="hidden" name="sub_order" value={{sub_order|slugify}}>
+    <br>
+    <button id="checkout_button" type="submit">Confirm</button>
+</form>
+<br>
+<br>
+<a href="{% url 'index' %}">Back to Menu</a>
+{% endblock %}

@@ -1,0 +1,232 @@
+{% extends "menu/base.html" %}
+
+{% block title %}Our Menu{% endblock %}
+
+{% block body %}
+<ul id="logout_header">
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+</ul>
+
+{% load static %}
+<div id="top_section">
+
+    <div id="cart_link">
+        <button id="cart_button"><a href="{% url 'cart' %}">Stored Cart</a></button>
+    </div>
+
+    <div class="image_section">
+        <img class='first_image' src="{% static 'menu/Pasta_img.jpg' %}" alt="Pizza">
+    </div>
+
+</div>
+
+<div id="menu_section">
+    <form action="{% url 'total_order' %}" method="post">
+        {% csrf_token %}
+
+        <h3 class="section_header">
+            Pizzas
+        </h3>
+        <div id="menu_section_pizza">
+                <div>
+                <p> <p class="menu_section_mini">Pizza Type</p>
+                    {% for pizza in pizza_types %}
+                        <p>
+                            <input type="radio" id="pizza_{{pizza}}" name="pizza_type" value="{{pizza}}">
+                            <label for="pizza_{{pizza}}"> {{ pizza }} </label>
+                        </p>
+                    {% endfor %}
+                </p>
+                </div>
+
+                <div>
+                <p> <p class="menu_section_mini">Pizza Size</p>
+                    {% for size in sizes %}
+                        <p>
+                            <input type="radio" id="size_{{size}}" name="pizza_size" value="{{size}}">
+                            <label for="size_{{size}}"> {{ size }} </label>
+                        </p>
+                    {% endfor %}
+                </p>
+                </div>
+
+                <div>
+                <p> <p class="menu_section_mini">Toppings</p>
+
+                    {% for topping in all_toppings%}
+                        <p>
+                            <input type="checkbox" class="topping-selection" id="topping_{{all_topping}}" name="topping_choice" value="{{topping}}">
+                            <label for="topping_{{all_topping}}"> {{ topping }} </label>
+                        </p>
+                    {% endfor %}
+                </p>
+                </div>
+
+        </div>
+
+        <br>
+        <h3 class="section_header">
+            Pastas
+        </h3>
+        <div id="menu_section_pasta">
+            <div>
+            <p>
+                {% for pasta in pastas %}
+                    <p>
+                        <input type="radio" id="pasta_{{pasta}}" name="a_pasta"  value="{{pasta.type}}">
+                        <label for="pasta_{{pasta}}"> {{pasta}} </label>
+                    </p>
+                {% endfor %}
+            </p>
+            </div>
+        </div>
+
+        <br>
+        <h3 class="section_header">
+            Salads
+        </h3>
+        <div id="menu_section_salad">
+            <div>
+                <p>
+                    {% for salad in salads %}
+                        <p>
+                            <input type="radio" id="salad_{{salad}}" name="a_salad"  value="{{salad.salad_meal}}">
+                            <label for="salad_{{salad}}"> {{salad}} </label>
+                        </p>
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+        <br>
+
+        <h3 class="section_header">
+            Dinners
+        </h3>
+        <div id="menu_section_dinner">
+            <div>
+                <p> <p class="menu_section_mini">Dinner Option</p>
+
+                    {% for dinner in meal_option %}
+                        {% if dinner != salad_w_tuna %}
+                        <p>
+                            <input type="radio" id="dinner_{{dinner}}" name="a_dinner" value="{{dinner.meal_type}}">
+                            <label for="dinner_{{dinner}}"> {{dinner}} </label>
+                        </p>
+                        {% else %}
+                            {# Output nothing #}
+                        {% endif %}
+                    {% endfor %}
+
+                </p>
+
+            </div>
+
+            <div >
+                <p> <p class="menu_section_mini">Dinner Size</p>
+                    {% for size in sizes %}
+                        <p>
+                            <input type="radio" id="dinner_size_{{size}}" name="dinner_size" value="{{size}}">
+                            <label for="dinner_size_{{size}}"> {{ size }} </label>
+                        </p>
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+        <br>
+
+        <h3 class="section_header">
+            Subs
+        </h3>
+        <div id="menu_section_sub">
+            <div>
+                <p class="sub_changes"> <p class="menu_section_mini">Sub Selection</p>
+
+                    {% for sub in sub_type%}
+                        <p>
+                            <input type="radio" class="sandwich" id="sandwich_{{sub}}" name="sandwich"  value="{{sub}}">
+                            <label for="sandwich_{{sub}}"> {{sub}} </label>
+                        </p>
+                    {% endfor %}
+                </p>
+            </div>
+
+            <div>
+                <p> <p class="menu_section_mini">Sub Size</p>
+                    {% for sub_size in sizes %}
+                        <p>
+                            <input type="radio" id="sandwich_{{sub_size}}" name="sandwich_size" value="{{sub_size}}">
+                            <label for="sandwich_{{sub_size}}"> {{ sub_size }} </label>
+                        </p>
+                    {% endfor %}
+                </p>
+                <br>
+                <p> <p class="menu_section_mini">Extra Cheese</p>
+                    {% for extra in add_extra %}
+                        <p>
+                            <input type="checkbox" id="extra_cheese" name="extra_cheese" value="{{extra.price}}">
+                            <label for="extra_cheese"> {{ extra }} </label>
+                        </p>
+                    {% endfor %}
+                </p>
+                <br>
+
+                <p> <p class="menu_section_mini">Extras</p>
+                    {% for extra_option in sub_extra_option %}
+                        <p>
+                            <input type="checkbox" class=sub_extra id="sub_extra_{{extra_option}}" name="sub_extra" value="{{extra_option}}">
+                            <label for="sub_extra_{{extra_option}}"> {{ extra_option }} </label>
+                        </p>
+                    {% endfor %}
+                </p>
+
+
+            </div>
+        </div>
+
+
+
+        <br>
+        <input type="submit" id="menu_submit" value="submit">
+        <br>
+        <br>
+        <br>
+        <br> 
+        <br>
+        <br>
+        <br>
+        <br> 
+        <br>
+        <br>
+    </form>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$('input[class=topping-selection]').change(function(e){
+    if ($('input[class=topping-selection]:checked').length==4) {
+        alert("4 Toppings! You have selected a Special Pizza Category.");
+    }
+        else if ($('input[class=topping-selection]:checked').length>4) {
+        $(this).prop('checked', false)
+        alert("4 Maximum Selections allowed");
+    }
+})
+
+
+document.addEventListener("DOMContentLoaded", ()=> {
+        document.querySelector("#sub_extra_Mushrooms").disabled = true;
+        document.getElementById("sub_extra_Green Peppers").disabled = true;
+        document.getElementById("sub_extra_Onion").disabled = true;
+
+    document.querySelector("#sandwich_Steak_and_Cheese").onclick = () => {
+        document.querySelector("#sub_extra_Mushrooms").disabled = false;
+        document.getElementById("sub_extra_Green Peppers").disabled = false;
+        document.getElementById("sub_extra_Onion").disabled = false;
+    }
+
+});
+
+
+
+</script>
+
+{% endblock %}

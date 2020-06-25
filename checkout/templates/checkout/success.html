@@ -1,0 +1,10 @@
+{% extends "menu/base.html" %}
+
+{% block title %}Success{% endblock %}
+
+{% block body %}
+<script src="https://js.stripe.com/v3/"></script>
+
+<h2>Success Page</h2>
+<a href="{% url 'index' %}">Back to Menu</a>
+{% endblock %}

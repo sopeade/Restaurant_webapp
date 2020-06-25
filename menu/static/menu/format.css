@@ -1,0 +1,179 @@
+#______________________________________________sign-in page
+
+#logout_header {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #BEBEBE;
+}
+li a:hover:not(.active) {
+  background-color: #DCDCDC;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+#welcome_text {
+font-family: "Comic Sans MS", cursive, sans-serif;
+font-style: italic;
+text-align: center
+font-weight: bold;
+font-size: 80px;
+}
+
+
+/* #_______________________________________ menu page*/
+
+
+.image_section{
+display: block;
+max-width: 70%;
+min-width: 50%;
+min-height: 40%;
+height:auto;
+margin-left: auto;
+margin-right: auto;
+}
+
+.first_image {
+display: block;
+max-width: 70%;
+min-width: 50%;
+min-height: 40%;
+height: auto;
+margin-left: auto;
+margin-right: auto;
+margin-top:0;
+}
+
+#top_section{
+display: grid;
+grid-template-columns: 1fr, 10fr;
+}
+/* #----------------------menu section */
+
+#menu_section {
+margin: auto;
+width: 50%;
+}
+
+#menu_section_pizza{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-color: #e6ffff;
+  padding: 10px;
+  border-radius: 25px;
+  }
+
+
+#menu_section_pasta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #e6ffff;
+  padding: 10px;
+  border-radius: 25px;
+  }
+
+#menu_section_salad {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #e6ffff;
+  padding: 10px;
+  border-radius: 25px;
+  }
+
+#menu_section_dinner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #e6ffff;
+  padding: 10px;
+  border-radius: 25px;
+  }
+
+#menu_section_sub {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  background-color: #e6ffff;
+  padding: 10px;
+  border-radius: 25px;
+  }
+
+
+.section_header{
+text-align: center;
+}
+
+h3{
+  text-decoration: underline;
+  font-size:20px;
+}
+
+.menu_section_mini{
+font-weight: bold;
+}
+
+
+#menu_submit{
+box-shadow:inset 0px 1px 0px 0px #bee2f9;
+background:linear-gradient(to bottom, #63b8ee 5%, #468ccf 100%);
+background-color:#63b8ee;
+border-radius:6px;
+border:1px solid #3866a3;
+display:inline-block;
+cursor:pointer;
+color:#14396a;
+font-family:Arial;
+font-size:20px;
+font-weight:bold;
+padding:6px 24px;
+text-decoration:none;
+text-shadow:0px 1px 0px #7cacde;
+}
+
+#menu_submit:hover{
+background:linear-gradient(to bottom, #468ccf 5%, #63b8ee 100%);
+background-color:#468ccf;
+}
+
+#cart_button{
+box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:10px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	padding:12px 37px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+}
+
+#cart_button:hover{
+background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+background-color:#bc3315;
+}
