@@ -50,6 +50,7 @@ def register(request):
     user = User.objects.create_user(username, email, password)
     user.first_name = first_name
     user.last_name = last_name
+
     user.save()
     return HttpResponseRedirect(reverse("access_login"))
 
@@ -193,7 +194,7 @@ def total_order(request):
 
 
 def cart(request):
-    # This page is for retrieving the order details via
+    # This page is for retrieving the cart details(items placed in shopping cart) from the database
     context = {
         "pizza_order": Cart.objects.get(username__username=request.session["user"]).order_pizza,
         "pizza_order_topping": Cart.objects.get(username__username=request.session["user"]).order_pizza_topping,
